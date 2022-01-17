@@ -32,6 +32,7 @@
     }
   },
   "scripts": {
+    "update_component_set": "git fetch material-ui-component-set; git merge material-ui-component-set/master --allow-unrelated-histories --no-commit",
     "start": "bb components serve -p 5001",
     "build": "bb components build",
     "dev": "nodemon",
