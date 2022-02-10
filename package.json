@@ -1,6 +1,6 @@
 {
   "name": "component-set",
-  "version": "1.195.0",
+  "version": "1.197.1",
   "main": "dist/templates.json",
   "license": "UNLICENSED",
   "private": false,
@@ -32,6 +32,7 @@
     }
   },
   "scripts": {
+    "update_component_set": "git fetch material-ui-component-set; git merge material-ui-component-set/master --allow-unrelated-histories --no-commit",
     "start": "bb components serve -p 5001",
     "build": "bb components build",
     "dev": "nodemon",
@@ -55,8 +56,7 @@
     "@material-ui/styles": "^4.9.10",
     "date-fns": "^2.11.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "yarn": "^1.22.17"
+    "react-dom": "^16.13.1"
   },
   "repository": {
     "type": "git",
