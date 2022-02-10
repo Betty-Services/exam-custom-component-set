@@ -59,8 +59,17 @@
         let examDataComponentAttribute = 'exam_datalist';
         if (!isDev && model) {
           const { getModel } = B;
-          const { name: modelName } = getModel(model);
-          examDataComponentAttribute = `${modelName.toLowerCase()}_datalist`; // _datalist, _datacontainer
+          let modelId = '';
+          if (typeof model === 'string') {
+            modelId = model;
+            const { name: modelName } = getModel(modelId);
+            examDataComponentAttribute = `${modelName.toLowerCase()}_datalist`;
+          } else if (typeof model === 'object' && model.kind) {
+            if (model.kind === 'HAS_MANY') {
+              const property = getProperty(model.id[1]);
+              examDataComponentAttribute = `${property.label.toLowerCase()}_datalist`;
+            }
+          }
         }
 
         const builderLayout = () => (
